@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="my_legal_helper" ng-controller="mainController">
+<head>
+  <meta charset="utf-8" />
+  <title>{{appName}}</title>
+  <link rel="assets/css/" href="my_legal_helper.css" />
+  <base href="/my_legal_helper/">
+  <script src="assets/libs/jquery-3.2.1.min.js"></script>
+  <script src="assets/libs/angular.min.js"></script>
+  <script src="assets/libs/angular-route.min.js"></script>
+  <script src="app/app.module.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="title">{{appName}}</h1>
+	Choose:
+	  <a href="home">Landing page</a> |
+	  <a href="questionnaire">Questionnaire</a>
+	<ng-view></ng_view>
+  </div>
+</body>
+</html>
