@@ -1,1 +1,13 @@
-<h2>{{ message }}</h2>
+<div ng-show="hideElementBool">
+	<img src="assets/img/img2.png" alt="Smiley face" height="80"> 
+	<h2>Is this right for me?</h2>
+	<h4 class="text-justify">If you are seriously injured you should always get help from a solicitor. However, in more straightforward cases a solicitor may add little value and you can often settle the case yourself.</br>A solicitor will usually take 25% of your damages in legal fees, so it is important to decide whether they will add value to your case. These tools and guides are designed to help you make that decision and guide you through the case if you want to do it yourself.</h4>
+	<button type="button" class="btn btn-primary" ng-click="hideElement()">Start Case Tool</button>
+</div>
+<div ng-hide="hideElementBool">
+	<img src="assets/img/img3.png" alt="Smiley face" height="80"> 
+	<h2>Case Tool</h2>
+	<div class="container-fluid" id="questions">QUESTIONS
+	</div>
+	<button type="button" class="btn btn-default btn-arrow-left" ng-click="goToPrevious()"></button><button type="button" class="btn btn-default btn-arrow-left" ng-click="goToNext()"></button>
+</div>

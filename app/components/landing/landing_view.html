@@ -1,1 +1,16 @@
-<h2>{{ message }}</h2>
+<div ng-show="hideLandingElementBool"><h3><small class="text-muted">powered by</small></h3>
+	<h3>The Cycling Solicitor</h3>
+	<img src="assets/img/img1.png" alt="Smiley face" height="100"> 
+	<h2>Free tools and guides</br>helping injured cyclists</br>exercise their rights</h2>
+	<button type="button" class="btn btn-primary" ng-click="hideLandingElement()">Choose tool</button>
+</div>
+<div ng-hide="hideLandingElementBool">
+	<h2>Choose a tool to use</h2>
+	<h4>Find out if you have a good</br>case and then decide if you</br>want to draft a letter</h4>
+	<a href="questionnaire"><button type="button" class="btn btn-primary">Start Case Tool</button></a>
+</div>
+
+
+
+
+

@@ -6,15 +6,18 @@ var app = angular.module('my_legal_helper', ['ngRoute'])
   $scope.$location = $location;
   $scope.$routeParams = $routeParams;
 })
-
 .controller('landingController', function($scope) {
-  $scope.message = "The app routing is working for the landing part!";
+	$scope.hideLandingElementBool = true;
+	$scope.hideLandingElement = function(){
+		$scope.hideLandingElementBool = false;
+	}
 })
-
 .controller('questionnaireController', function($scope) {
-  $scope.message = "The app routing is working for the questionnaire part!";
+  	$scope.hideElementBool = true;
+	$scope.hideElement = function(){
+		$scope.hideElementBool = false;
+	}
 });
-
 app.config(function($routeProvider, $locationProvider) {
 	var baseUrl = 'app/components/';
   $routeProvider
