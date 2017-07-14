@@ -1,13 +1,30 @@
-<div ng-show="hideElementBool">
+<div ng-show="hideQBool">
 	<img src="assets/img/img2.png" alt="Smiley face" height="80"> 
 	<h2>Is this right for me?</h2>
 	<h4 class="text-justify">If you are seriously injured you should always get help from a solicitor. However, in more straightforward cases a solicitor may add little value and you can often settle the case yourself.</br>A solicitor will usually take 25% of your damages in legal fees, so it is important to decide whether they will add value to your case. These tools and guides are designed to help you make that decision and guide you through the case if you want to do it yourself.</h4>
-	<button type="button" class="btn btn-primary" ng-click="hideElement()">Start Case Tool</button>
+	<button type="button" class="btn btn-primary" ng-click="hideQBool = false">Start Case Tool</button>
 </div>
-<div ng-hide="hideElementBool">
+<div ng-hide="hideQBool">
 	<img src="assets/img/img3.png" alt="Smiley face" height="80"> 
 	<h2>Case Tool</h2>
-	<div class="container-fluid" id="questions">QUESTIONS
+	<!--in the div below inputs for the various questions are defined (at the moment 3 inputs). 
+	This needs to be done dynamically via script that pulls the next question from the qsCase array of objects depending on the 
+	answer given (in the case of selects and buttons) or simply directs to the next question after validation (in the 
+	case of text/ date inputs)-->
+	<div class="container-fluid">
+		<form>
+			<input type="text" placeholder="First name" ng-model="ansCase.firstName" />
+			<input type="text" placeholder="Last name" ng-model="ansCase.lastName" />
+			<input type="text" placeholder="Date of Birth" ng-model="ansCase.dateOfBirth" />
+		</form>
 	</div>
-	<button type="button" class="btn btn-default btn-arrow-left" ng-click="goToPrevious()"></button><button type="button" class="btn btn-default btn-arrow-left" ng-click="goToNext()"></button>
+	<div ng-click="hideAnswers = !hideAnswers">Answers so far
+	<!--the following div displays the contents of values within the ansCase object that ae not empty.
+	This needs to be an ng-repeat-->
+		<div ng-show="hideAnswers">
+			<p ng-show="ansCase.firstName">{{ansCase.firstName}}</p>
+			<p ng-show="ansCase.lastName">{{ansCase.lastName}}</p>
+			<p ng-show="ansCase.dateOfBirth">{{ansCase.dateOfBirth}}</p>
+		</div>
+	</div>
 </div>
