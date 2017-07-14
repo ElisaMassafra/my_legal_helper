@@ -1,4 +1,4 @@
-var app = angular.module('my_legal_helper', ['ngRoute'])
+var app = angular.module('my_legal_helper', ['ngRoute', 'ngAnimate'])
 
 .controller('mainController', function($scope, $route, $routeParams, $location) {
 	$scope.appName = "My Legal Helper";
@@ -23,12 +23,12 @@ var app = angular.module('my_legal_helper', ['ngRoute'])
 	{qId: "0", }
 	]
 	console.log(angular.toJson($scope.qsCase));
-/*		$http.get("data/qsCase.json").success(function(data){
+		$http.get("data/qsCase.json").then(function(data){
 		$scope.qsCase = data;
 	});
-	$http.get("data/qsLetter.json").success(function(data){
+	$http.get("data/qsLetter.json").then(function(data){
 		$scope.qsLetter = data;
-	});*/
+	});
 })
 
 app.config(function($routeProvider, $locationProvider) {

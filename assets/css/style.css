@@ -5,6 +5,22 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
+main.ng-enter{
+transition:0.5s linear all;
+opacity:0;
+}
+main.ng-enter.ng-enter-active{
+opacity:1;
+}
+
+/*#menubtn div.ng-enter{
+transition:0.5s linear all;
+opacity:0;
+}
+#menubtn div.ng-enter.ng-enter-active{
+opacity:1;
+}*/
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
