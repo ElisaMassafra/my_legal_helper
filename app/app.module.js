@@ -1,4 +1,4 @@
-var app = angular.module('my_legal_helper', ['ngRoute', 'ngAnimate'])
+var app = angular.module('my_legal_helper', ['ngRoute', 'ngAnimate', 'ngSanitize'])
 
 .controller('mainController', function($scope, $route, $routeParams, $location) {
 	$scope.appName = "My Legal Helper";
@@ -11,27 +11,28 @@ var app = angular.module('my_legal_helper', ['ngRoute', 'ngAnimate'])
 	$scope.hideLBool = true;
 })
 
-.controller('questionnaireController', function($scope, $http) {
+.controller('questionnaireController', function($scope, $http, $sce) {
   	$scope.hideQBool = true;
-	//the ansCase object should have the answers from the qsCase object array pushed to it
-	$scope.ansCase = {
-	firstName: "",
-	lastName: "",
-	dateOfBirth: ""
-	}
-	$scope.qsCase = [
-	{qId: "0", }
-	]
-	console.log(angular.toJson($scope.qsCase));
+	$scope.qsCase = $sce.trustAsHtml('<input type="text" placeholder="first name" name="firstName" ng-model="caseAns.firstName" ng-required="true"/>');
+	
+	/*[
+	{html: '<input type="text" placeholder="first name" name="firstName" ng-model="caseAns.firstName" ng-required="true"/>'},
+	{html: '<input type="text" placeholder="last name" name="lastName" ng-model="caseAns.lastName" ng-required="true"/>'}
+	];
+	
+	$scope.nextQ = function(){
+	};
+
+	/*console.log(angular.toJson($scope.qsCase));
 		$http.get("data/qsCase.json").then(function(data){
 		$scope.qsCase = data;
 	});
 	$http.get("data/qsLetter.json").then(function(data){
 		$scope.qsLetter = data;
-	});
+	});*/
 })
 
-app.config(function($routeProvider, $locationProvider) {
+.config(function($routeProvider, $locationProvider) {
 	var baseUrl = 'app/components/';
 	$routeProvider
    .when('/questionnaire', {

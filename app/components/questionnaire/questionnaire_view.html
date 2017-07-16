@@ -7,24 +7,12 @@
 <div ng-hide="hideQBool">
 	<img src="assets/img/img3.png" alt="Smiley face" height="80"> 
 	<h2>Case Tool</h2>
-	<!--in the div below inputs for the various questions are defined (at the moment 3 inputs). 
-	This needs to be done dynamically via script that pulls the next question from the qsCase array of objects depending on the 
-	answer given (in the case of selects and buttons) or simply directs to the next question after validation (in the 
-	case of text/ date inputs)-->
-	<div class="container-fluid">
-		<form>
-			<input type="text" placeholder="First name" ng-model="ansCase.firstName" />
-			<input type="text" placeholder="Last name" ng-model="ansCase.lastName" />
-			<input type="text" placeholder="Date of Birth" ng-model="ansCase.dateOfBirth" />
-		</form>
-	</div>
-	<div id="menubtn" ng-click="hideAnswers = !hideAnswers">Answers so far
-	<!--the following div displays the contents of values within the ansCase object that ae not empty.
-	This needs to be an ng-repeat-->
-		<div ng-show="hideAnswers">
-			<p ng-show="ansCase.firstName">{{ansCase.firstName}}</p>
-			<p ng-show="ansCase.lastName">{{ansCase.lastName}}</p>
-			<p ng-show="ansCase.dateOfBirth">{{ansCase.dateOfBirth}}</p>
-		</div>
+	<div ng-bind-html="qsCase"></div>
+<!--<input type="text" placeholder="first name" name="firstName" ng-model="caseAns.firstName" ng-required="true"/>-->
+	<input type="text" placeholder="last name" name="lastName" ng-model="caseAns.lastName" ng-required="true"/>
+	<div ng-repeat="(x, y) in caseAns">
+	<ul>
+		<li>{{x}} {{y}}</li>
+	</ul>
 	</div>
 </div>
